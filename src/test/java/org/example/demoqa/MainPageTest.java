@@ -36,9 +36,16 @@ public class MainPageTest {
 
     @Test
     public void visible() {
-        WebDriverWait wait = new WebDriverWait (driver,Duration.ofSeconds(6));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6));
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#visibleAfter")));
         WebElement visibleButton = driver.findElement(By.cssSelector("#visibleAfter"));
+        assertTrue(visibleButton.isDisplayed(), "Кнопка не отображается на странице");
+    }
+
+    @Test
+    public void visible2() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6));
+        WebElement visibleButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#visibleAfter")));
         assertTrue(visibleButton.isDisplayed(), "Кнопка не отображается на странице");
     }
 }
